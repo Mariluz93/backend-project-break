@@ -17,7 +17,7 @@ const productController = {
             }
 
             const title = category ? `${category}` : "Productos";
-            const content = getNavBar() + template.productsList(products, title, false);
+            const content = getNavBar(req.session?.isAdmin) + template.productsList(products, title, false);
 
             res.send(baseHtml(content));
 
@@ -50,7 +50,7 @@ const productController = {
         }
     },
     showNewProduct: (req, res) => {
-        const content = getNavBar("dashboard") + template.newProductForm();
+        const content = getNavBar(req.session?.isAdmin) + template.newProductForm();
         res.send(baseHtml(content));
     },
     showDashboard: async (req, res) => {
@@ -66,7 +66,7 @@ const productController = {
             }
 
             const title = category ? `${category}` : "Dashboard";
-            const content = getNavBar("dashboard") + template.productsList(products, title, true);
+            const content = getNavBar(req.session?.isAdmin) + template.productsList(products, title, true);
 
             res.send(baseHtml(content));
 
@@ -85,7 +85,7 @@ const productController = {
                 return res.status(404).send('Product not found');
             }
 
-            const content = getNavBar("dashboard") + template.editProductForm(product);
+            const content = getNavBar(req.session?.isAdmin) + template.editProductForm(product);
             return res.send(baseHtml(content));
 
         } catch (error) {
@@ -136,7 +136,7 @@ const productController = {
                 return res.status(404).send('Product not found')
             }
     
-            const content = getNavBar() + template.productDetail(product);
+            const content = getNavBar(req.session?.isAdmin) + template.productDetail(product);
             res.send(baseHtml(content));
         } catch (error) {
             console.error(error)
@@ -168,7 +168,7 @@ const productController = {
                 return res.status(404).send('Product not found')
             }
 
-            const content = getNavBar("dashboard") + template.dashboardProductDetail(product);
+            const content = getNavBar(req.session?.isAdmin) + template.dashboardProductDetail(product);
             res.send(baseHtml(content));
 
         } catch (error) {

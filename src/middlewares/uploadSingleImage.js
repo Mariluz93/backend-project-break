@@ -1,4 +1,4 @@
-const upload = require('../middlewaresBONUs/uploadCloudinaryMiddleware.js');
+const upload = require('./uploadCloudinaryMiddleware.js');
 
 function uploadSingleImage(req, res, next) {
     const handler = upload.single('image');

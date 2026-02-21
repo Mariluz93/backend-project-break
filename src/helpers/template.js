@@ -191,10 +191,30 @@ function dashboardProductDetail(product) {
     `;
 }
 
+function loginForm() {
+    return `
+        <h1>Login</h1>
+        <div class="form-container">
+            <form action="/login" method="POST">
+                <div>
+                    <label>Usuario</label><br>
+                    <input type="text" name="username" required>
+                </div>
+                <div>
+                    <label>Contraseña</label><br>
+                    <input type="password" name="password" required autocomplete="current-password">
+                </div>
+                <button type="submit">Log in</button>
+            </form>
+        </div>
+    `;
+}
+
 module.exports = {
     productsList,
     newProductForm,
     editProductForm,
     productDetail,
-    dashboardProductDetail
+    dashboardProductDetail,
+    loginForm
 };
