@@ -13,7 +13,7 @@ const authController = {
         let errorMessage = '';
 
         if (error) {
-            errorMessage = `<p style="color:red;">Invalid credentials</p>`;
+            errorMessage = `<p class="error-message" style="color:red;">Invalid credentials</p>`;
         }
 
         const content = getNavBar(req.session?.isAdmin) + template.loginForm() + errorMessage;

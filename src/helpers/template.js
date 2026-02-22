@@ -19,9 +19,11 @@ function productsList(products, title, isAdmin) {
         
         html += `
             <div class="product-card">
-                <h2>${product.name}</h2>
-                <img src="${product.image}" style="max-width:300px; height:auto">
-                ${actions}
+                <img src="${product.image}">
+                <div class="card-body">
+                    <h2>${product.name}</h2>
+                    ${actions}
+                </div>
             </div>
         `;
     }
@@ -181,11 +183,12 @@ function dashboardProductDetail(product) {
             <p><strong>Talla: </strong>${size}</p>
             <p><strong>Precio: </strong>${price}</p>
             <hr>
-            <button><a href="/dashboard/${product._id}/edit">Editar</a></button>
-            <form action="/dashboard/${product._id}/delete?_method=DELETE" method="POST" style="display:inline;">
-                        <button type="submit">Eliminar</button>                
-            </form>
-            <hr>
+            <div class="edit-buttons">
+                <button><a href="/dashboard/${product._id}/edit">Editar</a></button>
+                <form action="/dashboard/${product._id}/delete?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit">Eliminar</button>                
+                </form>
+            </div>
             <button><a href="/dashboard">Volver a productos</a></button>
         </div>
     `;
