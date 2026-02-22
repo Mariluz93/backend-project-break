@@ -6,6 +6,7 @@ function productsList(products, title, isAdmin) {
 
     if (products.length === 0) {
         html += `<p>No hay productos todavía</p>`;
+        html += `</div>`;
         return html;
     }
     for (let product of products) {
@@ -47,7 +48,7 @@ function newProductForm() {
                     <textarea name="description" required></textarea>
                 </div>
                 <div>
-                    <label>Imagen (URL)</label><br>
+                    <label>Imagen</label><br>
                     <input type="file" name="image" accept="image/*" required>
                 </div>
                 <div>

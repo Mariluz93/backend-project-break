@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const apiProductController = require('../controllers/apiProductController');
-const apiAuthMiddleware = require('../middlewares/apiAuthMiddleware')
+const apiProductController = require('../controllers/apiProductController.js');
+const apiAuthMiddleware = require('../middlewares/apiAuthMiddleware.js')
 
 router.get('/products', apiProductController.getProducts)
 router.get('/products/:productId', apiProductController.getProductById)
