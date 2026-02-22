@@ -42,7 +42,7 @@ const productController = {
                 size,
                 price: Number(price)
             });
-            return res.redirect('/products');
+            return res.redirect('/dashboard');
 
         } catch (error) {
             console.error(error);
